@@ -133,5 +133,5 @@ keyset("n", "zn", ":Format<cr>", { silent = false })
 
 -- Daily Use Coc-Extensions
 vim.g.coc_global_extensions = { 'coc-html', 'coc-emmet', 'coc-json', 'coc-css', 'coc-yaml', 'coc-yank', 'coc-vimlsp',
-  'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-lua', '@yaegassy/coc-tailwindcss3', '@yaegassy/coc-astro',
+  'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-sumneko-lua', '@yaegassy/coc-tailwindcss3', '@yaegassy/coc-astro',
   'coc-clangd', 'coc-docker' }
