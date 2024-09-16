@@ -12,7 +12,7 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
-vim.opt.ignorecase = true 
+vim.opt.ignorecase = true
 vim.opt.incsearch = true -- 検索直後に画面が変遷する
 vim.opt.backup = false
 vim.opt.showcmd = true
@@ -25,11 +25,11 @@ vim.opt.smarttab = true
 vim.opt.breakindent = true
 
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 0
+vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.softtabstop=-1
+vim.opt.softtabstop = 0
 
-vim.opt.wrap = true 
+vim.opt.wrap = true
 vim.opt.helplang = 'ja'
 vim.opt.updatetime = 300
 vim.opt.showtabline = 1 -- barbar.nvimを用いる場合、値を1に設定しておかないと起動時に一瞬空のBufferがちらつく
@@ -40,16 +40,18 @@ vim.opt.hidden = true
 vim.opt.swapfile = false
 vim.opt.wrap = true
 
--- float-transparent
--- vim.opt.winblend = 
 -- Python3
 vim.cmd([[
     let g:python3_host_prog = '/usr/bin/python3'
 ]])
 
 -- 不可視文字を表示(colorscheme用)
+-- markdown用の初期設定を無効にする(これ設定しないとprettierでフォーマットしたときがややこしい)
 vim.cmd([[
 set listchars=tab:»-,nbsp:%,eol:↲
+
+let g:markdown_recommended_style = 0
+
 ]])
 vim.opt.list = false
 
@@ -60,8 +62,8 @@ local keymap = vim.keymap
 
 -- 新規タブ
 keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- 画面分割
 keymap.set('n', 'ss', ':split<Return><C-w>w')
@@ -73,19 +75,19 @@ keymap.set('n', 'sj', '<C-w>j')
 keymap.set('n', 'sl', '<C-w>l')
 
 -- 折返し時に論理行ではなく物理行で移動する
-keymap.set('n','j','gj')
-keymap.set('n','k','gk')
+keymap.set('n', 'j', 'gj')
+keymap.set('n', 'k', 'gk')
 
 -- Emacs風
 keymap.set('i', '<C-f>', '<Right>')
 -- jjでEscする
-keymap.set('i','jj','<Esc>')
+keymap.set('i', 'jj', '<Esc>')
 
 -- 保存のショートカット
-keymap.set('n','<C-t>',':w<CR>')
+keymap.set('n', '<C-t>', ':w<CR>')
 
 -- 設定ファイルを開く
-keymap.set('n','<F1>',':edit $MYVIMRC<CR>')
+keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
 
 -- -- -- ハイライトを全て非表示にする
-vim.keymap.set('n', '<leader><ESC>', ':noh<CR>')
+keymap.set('n', '<leader><ESC>', ':noh<CR>')

@@ -42,33 +42,31 @@ return {
       })
 
       vim.cmd([[colorscheme everforest]])
-
     end,
-  }, 
+  },
 
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-
       require('lualine').setup {
-        options ={
+        options = {
           theme = "everforest",
           globalstatus = true,
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch'}, -- diffは必要ない気がするので削除
-          lualine_c = {'filename'},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch' }, -- diffは必要ない気がするので削除
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {'location'},
+          lualine_c = { 'filename' },
+          lualine_x = { 'location' },
           lualine_y = {},
           lualine_z = {}
         },
@@ -77,7 +75,6 @@ return {
         inactive_winbar = {},
         extensions = {}
       }
-
     end,
   },
 
@@ -88,7 +85,7 @@ return {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = {"c","cpp","vim","dockerfile","fish","typescript","tsx","javascript","json","lua","gitignore","bash","astro","markdown","css","scss","yaml","toml","vue","php","html","vimdoc"},
+        ensure_installed = { "c", "cpp", "vim", "dockerfile", "fish", "typescript", "tsx", "javascript", "json", "lua", "gitignore", "bash", "astro", "markdown", "css", "scss","styled","yaml", "toml", "vue", "php", "html", "vimdoc" },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false, -- catpuucin用
@@ -109,7 +106,7 @@ return {
           -- Or a custom function return the final indent result.
           default_fallback = "auto"
         },
-        indent ={
+        indent = {
           -- 一部のファイルでインデントが変になることがある
           -- 一時的にインデントだけオフにして対応
           enable = false,
@@ -124,9 +121,9 @@ return {
     end
   },
 
-  {'JoosepAlviste/nvim-ts-context-commentstring'}, -- context-comment with treesitter
+  { 'JoosepAlviste/nvim-ts-context-commentstring' }, -- context-comment with treesitter
 
-  {"yioneko/nvim-yati", version="*"},
+  { "yioneko/nvim-yati",                          version = "*" },
 
   -- {'digitaltoad/vim-pug'}, -- for .jade,.pug file syntax
 }

@@ -1,4 +1,3 @@
-
 return {
 
   {
@@ -6,11 +5,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g["fern#renderer"] = "nerdfont"
+      -- vim.g["fern#renderer"] = "nerdfont"
+      vim.g["fern#renderer"] = "nvim-web-devicons"
 
-      vim.g["fern#default_hidden"]= 1
+      vim.g["fern#default_hidden"] = 1
 
       vim.cmd([[
+
       augroup my-glyph-palette
         autocmd! *
         autocmd FileType fern call glyph_palette#apply()
@@ -19,10 +20,11 @@ return {
 
       ]])
 
-      vim.keymap.set('n','<C-n>',':Fern . -reveal=%<CR>',{silent = true,noremap = true})
+      vim.keymap.set('n', '<C-n>', ':Fern . -reveal=%<CR>', { silent = true, noremap = true })
     end
-  }, 
-  {'lambdalisue/nerdfont.vim'},
-  {'lambdalisue/glyph-palette.vim'},
-  {'lambdalisue/fern-renderer-nerdfont.vim'},
+  },
+  -- {'lambdalisue/nerdfont.vim'},
+  -- {'lambdalisue/fern-renderer-nerdfont.vim'},
+  { 'TheLeoP/fern-renderer-web-devicons.nvim' },
+  { 'lambdalisue/glyph-palette.vim' },
 }

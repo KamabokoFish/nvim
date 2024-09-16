@@ -2,14 +2,14 @@
 
 return {
   -- barbar
-  {'romgrk/barbar.nvim',
+  {
+    'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
     config = function()
-
       --Set barbar's options
       require('barbar').setup {
 
@@ -36,7 +36,7 @@ return {
         focus_on_close = 'left',
 
         -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-        hide = {extensions = false, inactive = false},
+        hide = { extensions = false, inactive = false },
 
         -- Disable highlighting alternate buffers
         highlight_alternate = false,
@@ -45,7 +45,7 @@ return {
         highlight_inactive_file_icons = false,
 
         -- Enable highlighting visible buffers
-        highlight_visible = false,
+        highlight_visible = true,
 
         icons = {
           -- Configure the base icons on the bufferline.
@@ -54,10 +54,10 @@ return {
           button = '✕',
           -- Enables / disables diagnostic symbols
           diagnostics = {
-            [vim.diagnostic.severity.ERROR] = {enabled = false, icon = 'ﬀ'},
-            [vim.diagnostic.severity.WARN] = {enabled = false},
-            [vim.diagnostic.severity.INFO] = {enabled = false},
-            [vim.diagnostic.severity.HINT] = {enabled = false},
+            [vim.diagnostic.severity.ERROR] = { enabled = false, icon = 'ﬀ' },
+            [vim.diagnostic.severity.WARN] = { enabled = false },
+            [vim.diagnostic.severity.INFO] = { enabled = false },
+            [vim.diagnostic.severity.HINT] = { enabled = false },
           },
           filetype = {
             -- Sets the icon's highlight group.
@@ -71,15 +71,15 @@ return {
 
           -- Configure the icons on the bufferline when modified or pinned.
           -- Supports all the base icon options.
-          modified = {button = '●'},
-          pinned = {button = '車', filename = true, separator = {right = ''}},
+          modified = { button = '●' },
+          pinned = { button = '車', filename = true, separator = { right = '' } },
 
           -- Configure the icons on the bufferline based on the visibility of a buffer.
           -- Supports all the base icon options, plus `modified` and `pinned`.
-          alternate = {filetype = {enabled = false}},
-          current = {buffer_index = false},
-          inactive = {button = '×'},
-          visible = {modified = {buffer_number = false}},
+          alternate = { filetype = { enabled = false } },
+          current = { buffer_index = false },
+          inactive = { button = '×' },
+          visible = { modified = { buffer_number = false } },
         },
 
         -- If true, new buffers will be inserted at the start/end of the list.

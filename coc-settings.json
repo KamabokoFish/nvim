@@ -8,13 +8,14 @@
   "signature.floatConfig": { "winblend": 7 },
   "hover.floatConfig": { "border": true, "winblend": 7 },
   "eslint.enable": true,
-  "astro.enable": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.virtualTextLevel": "warning",
   "diagnostic.virtualTextPrefix": " ◆",
   "diagnostic.enableHighlightLineNumber": false,
+  "diagnostic.showUnused": false,
+  "html.autoClosingTags": false,
   "typescript.showUnused": false,
   "javascript.showUnused": false,
   "typescript.showDeprecated": false,
@@ -26,9 +27,14 @@
   "typescript.autoClosingTags": false,
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
-  "html.autoClosingTags": false,
   "css.completion.completePropertyWithSemicolon": false,
   "scss.completion.completePropertyWithSemicolon": false,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "astro.enable": true,
   "yank.enableCompletion": false,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/16.0.2/clangd_16.0.2/bin/clangd"
 }

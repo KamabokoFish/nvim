@@ -14,18 +14,18 @@ return {
     'prettier/vim-prettier',
     config = function()
       -- auto format
-      vim.cmd([[
-      let g:prettier#autoformat = 1
-      let g:prettier#autoformat_require_pragma = 0
-      ]])
+      -- vim.cmd([[
+      --   let g:prettier#autoformat = 1
+      --   let g:prettier#autoformat_require_pragma = 0
+      -- ]])
 
       -- 全体
-      vim.keymap.set("n","zm","  :PrettierAsync<cr>")
+      vim.keymap.set("n", "zm", "  :PrettierAsync<cr>")
       --VisualModeで部分のみ
-      vim.keymap.set("v","zmr","  :PrettierPartial<cr>")
+      vim.keymap.set("v", "zmr", "  :PrettierPartial<cr>")
     end
   },
   -- Document
-  { 'vim-jp/vimdoc-ja'},
+  { 'vim-jp/vimdoc-ja' },
 
 }

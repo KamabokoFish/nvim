@@ -1,4 +1,3 @@
-
 return {
   {
     'neoclide/coc.nvim',
@@ -26,18 +25,22 @@ return {
       -- Use Tab for trigger completion with characters ahead and navigate
       local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 
-      keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+      keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
+        opts)
       keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
       -- Make <CR> to accept selected completion item or notify coc.nvim to format
       -- <C-g>u breaks current undo, please make your own choice
-      keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+      -- これ、nvim-autopairsを入れてると抵触して機能しない
+      -- coc.nvimの補完と相性が悪い(相性の良い代替としてcoc-pairsがある)
+      -- nvim-autopairsを使う場合は、Enter(<CR>)での補完決定は設定しないほうがよい
+      -- デフォルトはCtrl-yで決定
+      -- keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
       -- Use <c-j> to trigger snippets
       -- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
       -- Use <c-space> to trigger completion
       keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
-
 
       -- GoTo code navigation
       -- 現在はtelescope-cocで代替
@@ -133,12 +136,19 @@ return {
       -- keyset("n","<leader>mm",":<C-u>CocCommand prettier.forceFormatDocument<cr>")
 
       -- Daily Use Coc-Extensions
-      vim.g.coc_global_extensions = { 'coc-html', 'coc-emmet', 'coc-json', 'coc-css', 'coc-yaml', 'coc-yank', 'coc-vimlsp',
-        'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-sumneko-lua', '@yaegassy/coc-tailwindcss3', '@yaegassy/coc-astro',
-        'coc-clangd', 'coc-docker','coc-snippets'}
+      vim.g.coc_global_extensions = { 'coc-html', 'coc-emmet', 'coc-json', 'coc-css', 'coc-yaml', 'coc-yank',
+        'coc-vimlsp',
+        'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-sumneko-lua', '@yaegassy/coc-tailwindcss3',
+        '@yaegassy/coc-astro',
+        'coc-clangd', 'coc-docker', 'coc-snippets' }
     end
   },
-   -- coc-snipet用
-  {'mlaursen/vim-react-snippets'},
+  -- coc-snipet用
+  -- { 'mlaursen/vim-react-snippets' },
+
+  {
+    'dsznajder/vscode-es7-javascript-react-snippets',
+    build = 'yarn install --frozen-lockfile && yarn compile'
+  }
 
 }
