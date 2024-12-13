@@ -34,15 +34,9 @@ return {
           },
           wrap_results = true, -- 検索結果を折り返す
         },
-        extensions = {
-          coc = {
-            prefer_locations = false,   -- always use Telescope locations to preview definitions/declarations/implementations etc
-          }, 
-        }
       })
 
       require('telescope').load_extension("frecency") --frecency search
-      require('telescope').load_extension("coc")      -- coc integration
 
       -- file search
       vim.keymap.set('n', '<leader>f',
@@ -89,23 +83,11 @@ return {
           })
         end)
 
-      ---- Telescope-coc
-      --定義ジャンプ
-      vim.keymap.set("n", "gd", "<cmd>Telescope coc definitions<cr>", { noremap = true, silent = true })
-      -- 型定義ジャンプ
-      vim.keymap.set("n", "gy", "<cmd>Telescope coc type_definitions<cr>", { noremap = true, silent = true })
-      -- diagnostics
-      vim.keymap.set("n", "<leader>ga", "<cmd>Telescope coc diagnostics<cr>", {noremap = true, silent = true })
-      -- reference
-      vim.keymap.set("n", "<leader>gr", "<cmd>Telescope coc references<cr>", {noremap = true, silent = true })
       --頻度検索
       vim.keymap.set("n", "<leader>l", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
     end
 
   },
 
-  {'fannheyward/telescope-coc.nvim'},
-
   {'nvim-telescope/telescope-frecency.nvim'},
-
 }
