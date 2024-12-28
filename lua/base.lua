@@ -1,4 +1,3 @@
-
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -14,9 +13,9 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true -- 検索直後に画面が変遷する
 vim.opt.backup = false
-vim.opt.showcmd = true
+vim.opt.showcmd = false  --入力コマンドを非表示
 vim.opt.cmdheight = 2
-vim.opt.laststatus = 3 -- 分割時にstatusineを一つだけにする
+vim.opt.laststatus = 3   -- 分割時にstatusineを一つだけにする
 vim.opt.scrolloff = 10
 vim.opt.shell = 'fish'
 vim.opt.inccommand = 'split'
@@ -69,8 +68,8 @@ keymap.set('n', 'sj', '<C-w>j')
 keymap.set('n', 'sl', '<C-w>l')
 
 -- 折返し時に論理行ではなく物理行で移動する
-keymap.set('n', 'j', 'gj')
-keymap.set('n', 'k', 'gk')
+keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
 -- Emacs風
 keymap.set('i', '<C-f>', '<Right>')
