@@ -1,12 +1,10 @@
-
 return {
 
   {
-    'nvim-telescope/telescope.nvim', 
+    'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-
       local builtin = require('telescope.builtin')
 
       require('telescope').setup({
@@ -14,7 +12,7 @@ return {
           preview = {
             -- 巨大なProjectで固まることがあるためtreesitterを無効に
             -- @refer https://github.com/nvim-telescope/telescope.nvim/issues/1379
-            treesitter = true,
+            treesitter = false,
           },
           sorting_strategy = "ascending",
           -- layout_strategy = 'vertical',
@@ -36,7 +34,7 @@ return {
         },
       })
 
-      require('telescope').load_extension("frecency") --frecency search
+      -- require('telescope').load_extension("frecency") --frecency search
 
       -- file search
       vim.keymap.set('n', '<leader>f',
@@ -84,10 +82,10 @@ return {
         end)
 
       --頻度検索
-      vim.keymap.set("n", "<leader>l", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
+      -- vim.keymap.set("n", "<leader>l", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
     end
 
   },
 
-  {'nvim-telescope/telescope-frecency.nvim'},
+  -- {'nvim-telescope/telescope-frecency.nvim'},
 }
