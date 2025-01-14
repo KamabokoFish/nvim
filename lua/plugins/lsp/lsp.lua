@@ -51,6 +51,11 @@ return {
         end,
       })
 
+      local handlers =  {
+        ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "single",max_width = 80}),
+        ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single" }),
+      }
+
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -68,7 +73,8 @@ return {
         -- a dedicated handler.
         function(server_name)           -- default handler (optional)
           lspconfig[server_name].setup({
-            capabilities = capabilities --add nvim-cmp settings
+            capabilities = capabilities, --add nvim-cmp settings
+            handlers = handlers
           })
         end,
       }
