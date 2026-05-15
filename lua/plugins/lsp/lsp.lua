@@ -66,18 +66,19 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
+      -- どうもmason version2ではこれが廃止された？
       -- Automatic LSP setup
-      mason_lspconfig.setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function(server_name)           -- default handler (optional)
-          lspconfig[server_name].setup({
-            capabilities = capabilities, --add nvim-cmp settings
-            handlers = handlers
-          })
-        end,
-      }
+      -- mason_lspconfig.setup_handlers {
+      --   -- The first entry (without a key) will be the default handler
+      --   -- and will be called for each installed server that doesn't have
+      --   -- a dedicated handler.
+      --   function(server_name)           -- default handler (optional)
+      --     lspconfig[server_name].setup({
+      --       capabilities = capabilities, --add nvim-cmp settings
+      --       handlers = handlers
+      --     })
+      --   end,
+      -- }
     end
   }
 
