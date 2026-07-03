@@ -1,5 +1,7 @@
 -- basic setting
 require('base')
+-- deprecated warningを抑止
+vim.deprecate = function() end
 
 -- Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
